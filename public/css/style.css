@@ -1,0 +1,133 @@
+@import url("./../../node_modules/bootstrap/dist/css/bootstrap.min.css");
+@import url("./../../node_modules/bootstrap-icons/font/bootstrap-icons.min.css");
+
+ body {
+    color: #bdbdbd;
+    background-color: #eceff1;
+    font: 16px Arial, sans-serif;
+  }
+ 
+  i {
+   color: #0288d1;
+ }
+ 
+ .sidebar {
+   position: fixed;
+   top: 0;
+   /* rtl:raw:
+   right: 0;
+   */
+   bottom: 0;
+   /* rtl:remove */
+   left: 0;
+   z-index: 100; /*Behind the navbar */
+   padding: 48px 0 0; /* Height of navbar */
+   box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+   background-color: #0288d1;
+ }
+ 
+ @media (max-width: 767.98px) {
+   .sidebar {
+     top: 5rem;
+   }
+ }
+ 
+ .sidebar-sticky {
+   position: relative;
+   top: 0;
+   height: calc(100vh - 48px);
+   padding-top: .5rem;
+   overflow-x: hidden;
+   overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+ }
+ 
+ .sidebar .nav-link {
+   font-weight: 500;
+   color: #333;
+ }
+ 
+ .sidebar .nav-link {
+   margin-right: 4px;
+   color: #727272;
+ }
+ 
+ .sidebar .nav-link.active {
+   color: #0288d1;
+ }
+ 
+ .sidebar-heading {
+   font-size: .75rem;
+   text-transform: uppercase;
+ }
+ 
+ /*
+  * Navbar
+  */
+ 
+ .navbar-brand {
+   padding-top: .75rem;
+   padding-bottom: .75rem;
+   font-size: 1rem;
+   background-color: rgba(0, 0, 0, .25);
+   box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+ }
+ 
+ .navbar .navbar-toggler {
+   top: .25rem;
+   right: 1rem;
+ }
+ 
+ .navbar .form-control {
+   padding: .75rem 1rem;
+   border-width: 0;
+   border-radius: 0;
+ }
+ 
+ .form-control-dark {
+   color: #fff;
+   background-color: rgba(255, 255, 255, .1);
+   border-color: rgba(255, 255, 255, .1);
+ }
+ 
+ .form-control-dark:focus {
+   border-color: transparent;
+   box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+ }
+ 
+ a:link {
+   text-decoration: none;
+ }
+ 
+ a:visited {
+   text-decoration: none;
+ }
+ 
+ a:hover {
+   text-decoration: underline;
+ }
+ 
+ a:active {
+   text-decoration: underline;
+ }
+ 
+ .sysInfoTittle {
+   color: #0288d1 ;
+ }
+ 
+ .xsmall {
+   font-size: x-small;
+   color: #bdbdbd;
+ }
+ 
+ .smallFont {
+   font-size: small;
+   color: #bdbdbd;
+ }
+ 
+ .blueFont {
+   color: #0288d1;
+ }
+ 
+ .buttomButton:hover {
+   Box-shadow:0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+ }

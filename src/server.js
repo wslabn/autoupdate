@@ -1,5 +1,7 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('node:path');
+const os = require('os'); 
+const fs = require('fs');
 const { updateElectronApp } = require('update-electron-app');
 updateElectronApp(); // additional configuration options available
 
@@ -14,12 +16,13 @@ const createWindow = () => {
     width: 800,
     height: 600,
     webPreferences: {
+      nodeIntegration: true,
       preload: path.join(__dirname, 'preload.js'),
     },
   });
 
   // and load the index.html of the app.
-  mainWindow.loadFile(path.join(__dirname, 'index.html'));
+  mainWindow.loadFile(path.join(__dirname, '../public/index.html'));
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
