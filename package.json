@@ -1,7 +1,7 @@
 {
   "name": "autoupdate",
   "productName": "autoupdate",
-  "version": "2024.06.151",
+  "version": "2024.06.152",
   "description": "Appligeeks Assist",
   "main": "src/server.js",
   "scripts": {
