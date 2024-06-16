@@ -9,11 +9,11 @@ export function formatBytes(bytes) {
 }
 
 
-function percentage(partialValue, totalValue) {
+export function percentage(partialValue, totalValue) {
     return Math.round((100 * partialValue) / totalValue);
 }
 
-function timeFormat(seconds){
+export function timeFormat(seconds){
     function pad(s){
         return (s < 10 ? '0' : '') + s;
     }

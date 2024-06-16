@@ -12,7 +12,8 @@
     <header class="navbar navbar-light sticky-top bg-white flex-md-nowrap p-0 shadow-sm">
       <div class="navbar-nav">
         <div class="nav-item text-nowrap">
-          <a class="nav-link px-3" href="#"><i class="fas fa-sync-alt refresh"></i></a>
+          <a class="logo" href="#"><img class="logo px-5" height="42" src="./img/wpheader.png"></a>
+          <!--  -->
         </div>
       </div>
     </header>
@@ -21,20 +22,25 @@
         <!-- side nav -->
         <nav id="sidebarMenu" class="col-1 d-md-block sidebar d-flex align-items-start shadow-sm">
           <div class="position-sticky pt-3">
-            <div class="nav flex-column me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-              <li class="nav-item">
-                <a class="nav-link text-white" data-bs-toggle="tab" data-bs-target="#dashContent" href="#">
-                  <i class="bi bi-house" style="font-size: 2rem; color: #ffffff;"></i>
+            <ul class="nav flex-column me-3">
+              <li class="nav-item text-center">
+                <a class="nav-link text-white portalLink" href="#">
+                  <i class="bi bi-person-vcard-fill text-white"></i>
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" data-bs-toggle="tab" data-bs-target="#dashContent" href="#">
-                  <i class="fas fa-home" style="font-size: 2rem; color: #ffffff;"></i>
+              <li class="nav-item text-center">
+                <a class="nav-link text-white taskManager" href="#">
+                  <i class="bi bi-speedometer text-white"></i>
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" data-bs-toggle="tab" data-bs-target="#dashContent" href="#">
-                  <i class="fas fa-home" style="font-size: 2rem; color: #ffffff;"></i>
+              <li class="nav-item text-center">
+                <a class="nav-link text-white refresh" href="#">
+                  <i class="bi bi-arrow-repeat text-white"></i>
+                </a>
+              </li>
+              <li class="nav-item text-center">
+                <a class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#powerModal" href="#">
+                  <i class="bi bi-power text-white"></i>
                 </a>
               </li>
             </ul>
@@ -45,19 +51,19 @@
           <div class="row text-center">
             <!-- first column -->
             <div class="col-6">
-              <span class="computerName text-dark fw-bolder"></span> <a href="#" id="copyComputer"><i class="bi bi-clipboard"></i></a>
+              <span class="computerName text-dark fw-bolder"></span><a href="#" id="copyComputer"><i class="bi bi-clipboard"></i></a>
               <div class="row systemImg">
                 <i class="fas fa-laptop" style="font-size: 5em;"></i>
               </div>
               <div class="row">
-                <span class="sysInfoTittle blueFont">System Info <a href="#"><i class="fas fa-info-circle small"></i></a></span>
+                <span class="sysInfoTittle blueFont">System Info <a href="#"><i class="bi bi-info-circle-fill small"></i></a></span>
                 <span class="model xsmall">Gathering Info..</span>
                 <span class="serialNumber xsmall">Gathering Info..</span>
                 <span class="virtual d-none xsmall"></span>
                 <span class="virtualHost d-none xsmall"></span>
               </div>
-              <div class="row text-center bg-white shadow-sm mt-2 rounded">
-                <div class="col">
+              <div class="row text-center bg-white shadow-sm mt-2 rounded card-body">
+                <div class="col my-2">
                   <div class="row">
                     <h2><i class="bi bi-memory"></i></h2>
                   </div>
@@ -65,15 +71,15 @@
                     <span class="memory smallFont">Gathering Info..</span>
                   </div>
                 </div>
-                <div class="col">
+                <div class="col my-2">
                   <div class="row">
-                    <h2><i class="bi bi-cpu"></i></h2>
+                    <h2><i class="bi bi-cpu-fill"></i></h2>
                   </div>
                   <div class="row">
                     <span class="cpu smallFont">Gathering Info..</span>
                   </div>
                 </div>
-                <div class="col">
+                <div class="col my-2">
                   <div class="row">
                     <h2 class="osImg"><i class="bi bi-windows"></i></h2>
                   </div>
@@ -90,7 +96,7 @@
                 <div class="bg-white shadow-sm mx-3 rounded">
                   <span class="mt-1 blueFont smallFont">Device Health</span><br>
                   <span class="smallFont">Details on your device health</span>
-                  <div class="row">
+                  <div class="row card-body">
                     <div class="col-6">
                       <div class="card-body">
                         <h2 class="powerImg"><i class="fas fa-battery-full"></i></h2>
@@ -99,8 +105,8 @@
                       </div>
                       <div class="card-body">
                         <h2><i class="fas fa-network-wired"></i></h2>
-                        <span class="smallFont">Network<br></span>
-                        <span class="networkStatus smallFont fw-bold">testing ..</span>
+                        <span class="smallFont adapter">Network</span><br>
+                        <span class="networkStatus smallFont fw-bold">testing ..</span> <a href="#" class="netinfo" data-bs-toggle="modal" data-bs-target="#netInfoModal"><i class="fas fa-info-circle small"></i></a>
                       </div>
                     </div>
                     <div class="col-6">
@@ -123,46 +129,107 @@
             <!-- bottom row -->
             <div class="col bg-white shadow-sm mt-4 rounded">
               <span class="mt-1 blueFont smallFont"> Resources & Fixes</span><br>
-              <div class="row d-inline-flex">
-                <div class="col fixesButton" id="cleanMgr">
-                  <div class="card-body">
-                    <h2><i class="fas fa-broom"></i></h2>
-                    <span class="smallFont">Optimize Disk</span>
+              <div class="row text-center bg-white shadow-sm mt-2 rounded card-body">
+                <div class="col">
+                  <div class="row">
+                    <div class="px-1" id="optimizeDisk">
+                      <h2><a href="#"><i class="fas fa-broom"></i></a></h2>
+                      <span class="smallFont">Optimize Disk</span>
+                    </div>
                   </div>
                 </div>
                 <div class="col">
-                  <div class="card-body fixesButton" id="reboot">
-                    <h2><i class="fas fa-redo"></i></h2>
-                    <span class="smallFont">Reboot</span>
+                  <div class="row">
+                    <div class="px-1" id="windowsSecurity">
+                      <h2><a href="#"><i class="fas fa-shield-virus"></a></i></h2>
+                      <span class="smallFont">Security Scans</span>
+                    </div>
                   </div>
                 </div>
-                <div class="col fixesButton" id="changePass">
-                  <div class="card-body">
-                    <h2><i class="fas fa-lock-open"></i></h2>
-                    <span class="smallFont">Change Password</span>
+                <div class="col">
+                  <div class="row">
+                    <div class="px-1" id="diskCheck">
+                      <h2><a href="#"><i class="fas fa-database"></i></a></h2>
+                      <span class="smallFont">Check Disk</span>
+                    </div>
                   </div>
                 </div>
-                <div class="col fixesButton" id="edgeReset">
-                  <div class="card-body">
-                    <h2><i class="fab fa-edge"></i></h2>
-                    <span class="smallFont">Reset Edge</span>
+                <div class="col">
+                  <div class="row">
+                    <div class="px-1" id="winUpdate">
+                      <h2><a href="#"><i class="fas fa-cloud-download-alt"></i></a></h2>
+                      <span class="smallFont">Check Updates</span>
+                    </div>
                   </div>
                 </div>
-                <div class="col fixesButton" id="chromeReset">
-                  <div class="card-body">
-                    <h2><i class="fab fa-chrome"></i></h2>
-                    <span class="smallFont">Reset Chrome</span>
+                <div class="col">
+                  <div class="row">
+                    <div class="px-1" id="netWizard">
+                      <h2><a href="#"><i class="fas fa-project-diagram"></i></a></h2>
+                      <span class="smallFont">Fix Network Problems</span>
+                    </div>
                   </div>
                 </div>
+                <div class="col">
+                  <div class="row">
+                    <div class="px-1" id="audioWizard">
+                      <h2><a href="#"><i class="fas fa-volume-up"></i></a></h2>
+                      <span class="smallFont">Fix Audio Problems</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="row">
+                    <div class="px-1" id="searchWizard">
+                      <h2><a href="#"><i class="fas fa-search"></i></a></h2>
+                      <span class="smallFont">Fix Search Problems</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="row">
+                    <div class="px-1" id="powerWizard">
+                      <h2><a href="#"><i class="fas fa-plug"></i></a></h2>
+                      <span class="smallFont">Fix Power Problems</span>
+                    </div>
+                  </div>
+                </div>
+                    
               </div>
             </div>
+          </div>
             <!-- end bottom row -->
           </div>
         </main>
       </div>
     </div>
+    <!-- Power Modal -->
+    <div class="modal fade" id="powerModal" tabindex="-1" aria-labelledby="powerModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-body text-center rounded-0">
+            <button type="button" class="btn btn-secondary btn-sm restart">Restart</button>
+            <button type="button" class="btn btn-secondary btn-sm powerOff">Shutdown</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- netinfo Modal -->
+    <div class="modal fade" id="netInfoModal" tabindex="-1" aria-labelledby="netInfoModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-body text-center rounded-0">
+            <div class="card-body netInfo">
+              <p><span>Current Adapter: <span class="adapter"></span></p>
+              <p class="latency"></p>
+              <button class="btn btn-small btn-primary refresh"><i class="fas fa-sync-alt text-white"></i> Refresh</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="./../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./../node_modules/jquery/dist/jquery.min.js"></script>
-    <script type="module" src="./js/index.js"></script>
+    <script type="module" src="./js/index.js" data-auto-replace-svg="nest"></script>
   </body>
 </html>

@@ -13,12 +13,15 @@ function getInfo(){
         osInfo: 'platform, release, build, distro',
         system: 'model, manufacturer, serial',
         networkInterfaces: 'default, ifaceName, ip4',
+        networkStats: 'operstate', 
         mem: 'total',
         memLayout: 'size, type, clockSpeed, formFactor, bank',
-        diskLayout: 'type, vendor, size'
+        diskLayout: 'type, vendor, size',
+        fsSize: 'fs, used, size',
+        battery: 'hasBattery, isCharging, maxcapacity, currentCapacity, acConnected, percent',
     }
     
-    si.get(valueObject).then(data => {
+   si.get(valueObject).then(data => {
         info = data;
         localStorage.setItem("sysInfo", JSON.stringify(info))
     });
